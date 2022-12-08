@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/MistyRose"
+    android:background="@color/MistyRose"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    tools:context=".UploadImage">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:text="Edit your market"
+        android:textStyle="bold"
+        android:textSize="26dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/firbaseImage"
+        android:layout_marginVertical="30dp"
+        android:scaleType="centerCrop"/>
+
+    <Button
+        android:id="@+id/selectImageBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="32dp"
+        android:text="Select Image"/>
+
+
+    <Button
+        android:id="@+id/uploadImageBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Upload Image" />
+
+    <TextView
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="wrap_content"
+        android:textSize="10dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Price" />
+
+    <EditText
+        android:id="@+id/UploadPrice"
+        android:layout_width="203dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:editable="true"/>
+
+    <TextView
+        android:id="@+id/editTextTextPersonName5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Quantity" />
+
+    <EditText
+        android:id="@+id/UploadQuantity"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:editable="true"/>
+
+    <TextView
+        android:id="@+id/editTextTextPersonName6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Product Name" />
+
+    <EditText
+        android:id="@+id/UploadName"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"/>
+
+
+</LinearLayout>
