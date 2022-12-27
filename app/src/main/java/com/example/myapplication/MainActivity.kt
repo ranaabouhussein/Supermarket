@@ -24,6 +24,13 @@ class MainActivity : AppCompatActivity() {
         val seller : Button =findViewById(R.id.sellerBtn)
         val buyer : Button =findViewById(R.id.buyerBtn)
         val location: Button=findViewById(R.id.locationBtn)
+        val call:Button=findViewById(R.id.Callbutton)
+
+        call.setOnClickListener{
+
+            val intent = Intent(this, callUser::class.java)
+            startActivity(intent)
+        }
 
         location.setOnClickListener{
 

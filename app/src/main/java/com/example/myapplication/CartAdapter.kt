@@ -69,25 +69,9 @@ class CartAdapter(private val itemsList:ArrayList<CartItems>):
 
     }
     private fun plusOne(item: CartItems , holder: MyViewHolder,origPrice:String,maxQ:String) {
+//        var max =
+//            firebaseRef.getReference("Seller").child(item.heading).child("quantity").toString().toInt()
 
-//        var maxquan=0
-//        var sellerDatabase = firebaseRef.getReference("Seller")
-//        sellerDatabase.child(item.heading).child("quantity")
-//        sellerDatabase.addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                for (childSnapshot in snapshot.children) {
-//                    Log.d("TESTTTTTTTTT" , Firebase.auth.currentUser?.uid.toString())
-//                    if (childSnapshot.child("heading").value.toString().equals(item.heading) ){
-//
-//                           maxquan=childSnapshot.child("quantity").value.toString().toInt()
-//
-//                    }
-//                }
-//            }
-//            override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//        })
         if(item.quantity.toInt()<maxQ.toInt()){
 
         val orgprc=origPrice
@@ -101,12 +85,15 @@ class CartAdapter(private val itemsList:ArrayList<CartItems>):
 
         val updatedItems = CartItems(name, qua, cost,origPrice,maxQ)
         firebaseRef.getReference("Cart").child(Firebase.auth.currentUser?.uid.toString()).child(item.heading).setValue(updatedItems)
+            firebaseRef.getReference("Seller").child(item.heading).setValue(items(item.heading, (maxQ.toInt()-qua.toInt()).toString(),origPrice ))
         holder.itemPrice.text = cost
         holder.itemquantity.text = qua
         }
 
     }
      fun minusOne(Name: String, quantity: String, price: String , holder: MyViewHolder,origPrice: String,maxQ:String) {
+//         var max =
+//             firebaseRef.getReference("Seller").child(Name).child("quantity").get().toString().toInt()
          var cost = ""
          var qua = ""
          if(quantity.toInt() >1){
@@ -114,13 +101,15 @@ class CartAdapter(private val itemsList:ArrayList<CartItems>):
              cost = (price.toDouble()-orgprc.toDouble()).toString()
              qua = (quantity.toInt()-1).toString()
              val updatedItems = CartItems(Name, qua, cost,origPrice,maxQ)
+             firebaseRef.getReference("Seller").child(Name).setValue(items(Name, ( maxQ.toInt()-qua.toInt()).toString(),origPrice ))
              firebaseRef.getReference("Cart").child(Firebase.auth.currentUser?.uid.toString()).child(Name).setValue(updatedItems)
 
          }
          else{
-
+             qua = (quantity.toInt()-1).toString()
+             firebaseRef.getReference("Seller").child(Name).setValue(items(Name, maxQ,origPrice ))
              firebaseRef.getReference("Cart").child(Firebase.auth.currentUser?.uid.toString()).child(Name).removeValue()//.setValue(updatedItems)
-         }
+            }
 
          holder.itemPrice.text = cost
          holder.itemquantity.text = qua

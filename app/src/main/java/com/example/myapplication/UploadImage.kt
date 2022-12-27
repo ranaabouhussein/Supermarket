@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.myapplication.databinding.ActivityMainBinding.inflate
+//import com.example.myapplication.databinding.ActivityMainBinding.inflate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
@@ -30,6 +30,7 @@ class UploadImage : AppCompatActivity() {
     private lateinit var productQuantity: EditText
     private lateinit var productPrice: EditText
 
+    private val Pattern="[0-9]"
 
 
     private var UserRef= Firebase.auth
@@ -86,6 +87,13 @@ class UploadImage : AppCompatActivity() {
 //                                databaseReference.child("Image").setValue(mapImage)
 
 
+                                if(!productPrice.text.matches(Pattern.toRegex())){
+                                        Toast.makeText(this,"enter a correct price ",Toast.LENGTH_SHORT).show()
+                                    }
+                                else if(!productQuantity.text.matches(Pattern.toRegex())){
+                                        Toast.makeText(this,"enter a correct quantity ",Toast.LENGTH_SHORT).show()
+                                    }
+                                else{
                                 val products :product=product(productName.text.toString(),productPrice.text.toString(),productQuantity.text.toString())//check min 23:27
 
 
@@ -144,7 +152,7 @@ class UploadImage : AppCompatActivity() {
 //                                        Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT)
 //                                            .show()
 //                                    }
-                            }
+                            }}
                         }
                 }
 

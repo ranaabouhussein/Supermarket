@@ -46,7 +46,7 @@ class BuyerActivity : AppCompatActivity() {
 
 
         cart.setOnClickListener{
-            val intent = Intent(this, CartActivity::class.java)
+            val intent = Intent(this, BuyerAddress::class.java)
             startActivity(intent)
             Toast.makeText(this, "cart", Toast.LENGTH_SHORT)
 //                                .show()

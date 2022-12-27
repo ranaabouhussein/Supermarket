@@ -47,11 +47,17 @@ class SellerActivity : AppCompatActivity() {
         newArrayList= arrayListOf<items>()
         getItemData()
         val edit : Button =findViewById(R.id.editButton)
+        val loc : Button =findViewById(R.id.locButton)
 
         edit.setOnClickListener{
             val intent = Intent(this, UploadImage::class.java)
             startActivity(intent)
         }
+        loc.setOnClickListener{
+            val intent = Intent(this, addLocation::class.java)
+            startActivity(intent)
+        }
+
     }
 
 
